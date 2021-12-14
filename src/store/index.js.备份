@@ -1,0 +1,43 @@
+// 这是仓库store
+
+// 1.导入需要使用的成员
+import { createStore } from 'redux'
+
+// 2.创建数据源
+const defaultState = {
+  count: 0,
+  _token: ''
+}
+
+// 3.创建纯函数reducer
+function reducer(state = defaultState, actions) {
+  console.log(actions)
+  if (actions.type === 'add') {
+    return {
+      ...state,
+      count: state.count + actions.payload
+    }
+  }
+  if (actions.type === 'del') {
+    return {
+      ...state,
+      count: state.count - actions.payload,
+    }
+  }
+  if(actions.type === 'set_token') {
+    return {
+      ...state,
+      _token: actions.payload
+    }
+  }
+  return state
+}
+
+// 4.产生仓库
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
+// 5.导出仓库
+export default store
