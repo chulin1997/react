@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "./store/index";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import App from "./App44.jsx";
+import App from "./App50.jsx";
 
 ReactDOM.render(
   // 如果App同时被Provider包裹，Provider和Router的内外层都可以
